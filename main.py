@@ -4,8 +4,10 @@ from discord.ext import commands
 import os
 from datetime import datetime
 from discord_slash import SlashCommand
+from dotenv import load_dotenv
 
 
+load_dotenv()
 prefixes = '.', 'RM.', 'rm.'
 intents = discord.Intents.all()
 
@@ -23,4 +25,4 @@ for filename in os.listdir('./cogs'):
         client.load_extension(f"cogs.{filename[:-3]}")
 
 
-client.run('OTI4MTY1MjEyNDQ2NjYyNjc2.YdUzNw.6aT7LLAE4XzMzJY13CqgEn9QZts')
+client.run(os.getenv('token'))
